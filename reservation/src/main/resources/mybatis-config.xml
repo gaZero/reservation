@@ -7,9 +7,10 @@
 
 	<typeAliases>
 		<typeAlias alias="MemberVO" type="com.reservation.pj.member.MemberVO" />
-<!-- 		<typeAlias alias="CommentVO" type="com.hotel.comment.CommentVO" /> -->
-<!-- 		<typeAlias alias="RoomVO" type="com.hotel.room.RoomVO" /> -->
-<!-- 		<typeAlias alias="BookVO" type="com.hotel.book.BookVO" /> -->
+		<typeAlias alias="CommentVO" type="com.reservation.pj.comment.CommentVO" />
+		<typeAlias alias="BoardVO" type="com.reservation.pj.board.BoardVO" />		
+		<typeAlias alias="RoomVO" type="com.reservation.pj.room.RoomVO" />
+		<typeAlias alias="BookVO" type="com.reservation.pj.book.BookVO" />
 	</typeAliases>
 	
 </configuration>

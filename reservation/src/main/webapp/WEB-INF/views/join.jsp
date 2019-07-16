@@ -1,15 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
 <c:set var="path" value="${pageContext.request.contextPath}"></c:set>
-<!DOCTYPE html>
 <html>
 <head>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 <%@ include file="header.jsp"%>
-<link href="/css/join.css" rel="stylesheet">
+<!-- here -->
+<link href="/css/join.css?ver=12" rel="stylesheet">
 <title>회원가입</title>
 </head>
 <script>
@@ -132,7 +129,6 @@ $(document).ready(function(){
 	$('#joinBtn').click(function(){
 		if(id_check && pw_check && pw2_check && email_check){
 		var data = $('#joinform').serialize();
-		alert(data);
 		
 		$.ajax({
 			url:'/memberjoin',
@@ -140,16 +136,17 @@ $(document).ready(function(){
 			data:data,
 			success:function(result){
 				if(result){
+					console.log("result: " + result);
 					alert_call(true,"가입완료!");
 					setTimeout(function(){
 						window.location.href="/";
-					},500)
+					},1000)
 					
 				}else{
 					alert_call(false,"가입 도중 문제가 발생했습니다!")
 						setTimeout(function(){
 							location.reload();
-					},500)			
+					},1000)			
 				}
 				
 			}

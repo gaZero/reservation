@@ -29,4 +29,12 @@
 			WHERE EMAIL = #{email}
 		</select>
 	
+		<select id="memberlogin" resultType="MemberVO">
+			SELECT  ID
+				  , PASSWORD
+				  , EMAIL
+			FROM MEMBER 
+			WHERE ID = #{id}
+		</select>
+	
 </mapper>

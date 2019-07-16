@@ -1,8 +1,5 @@
 package com.reservation.pj.member;
 
-import javax.inject.Inject;
-import javax.xml.stream.events.Namespace;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,24 +7,23 @@ import org.springframework.stereotype.Service;
 @Service
 public class MemberDAO {
 
-	private static final String namespace="com.hotel.member.MemberMapper";
-	@Inject
+	@Autowired
 	private SqlSession sqlSession;
 	
 	public void memberjoin(MemberVO mv) {
-		sqlSession.insert(namespace+"member.memberjoin",mv);
+		sqlSession.insert("member.memberjoin",mv);
 	}
 	
 	public MemberVO emailcheck(String email) {
-		return sqlSession.selectOne(namespace+"member.memberjoin",email);
+		return sqlSession.selectOne("member.emailcheck",email);
 	}
 
 	public MemberVO idcheck(String id) {
-		return sqlSession.selectOne(namespace+"member.emailcheck", id);
+		return sqlSession.selectOne("member.idcheck", id);
 	}
 	
 	public MemberVO memberlogin(MemberVO vo) {
-		return sqlSession.selectOne(namespace+".memberlogin",vo);
+		return sqlSession.selectOne("member.memberlogin",vo);
 	}
 	
 }

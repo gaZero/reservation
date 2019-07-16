@@ -1,8 +1,7 @@
 <%@page contentType="text/html; charset=utf-8"%>
 <html>
 <head>
-<!-- ${path} -->
-<link href="${path}/css/header.css" rel="stylesheet">
+<link href="${path}/css/header.css?ver=4" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Nunito:300i" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300i|Roboto:400,900i" rel="stylesheet">
@@ -10,16 +9,16 @@
 </head>
 <script>
 var sessionid=null;
-$(window).scroll(function() {
-    var st = $(this).scrollTop();
-    $('.nav-body').animate({top:st},0);
-   $('.alert').animate({top:st},0);
-   $('.modal').animate({top:st},0);
-});
+	$(window).scroll(function() {
+	    var st = $(this).scrollTop();
+	    $('.nav-body').animate({top:st},0);
+	   $('.alert').animate({top:st},0);
+	   $('.modal').animate({top:st},0);
+	});
 function alert_close(){
 		$('.alert').fadeOut('slow');
 		$('.alert h1').fadeOut('slow');
-}
+	}
 function alert_call(result,text){
 	$('.alert').fadeIn('slow');
 	if(result){
@@ -68,7 +67,7 @@ function alert_call(result,text){
 			type:'post',
 			success:function(result){
 				console.log(result);
-				if(result!="logout"){
+				if(result != "logout"){
 					sessionid=result;
 					$('.session_menu1').html('<a href="/mypage" data-text="예약내역">예약내역</a>');
 					$('.session_menu2').html('<a class="logout_btn" data-text="로그아웃">로그아웃</a>');
@@ -102,8 +101,10 @@ function alert_call(result,text){
 	});
 })
 </script>
+
 	<nav class="header">
-		<h1 class="logo" data-text="Reservation Web site">Reservation Web site</h1>
+<!-- 		<h1 class="logo" data-text="Reservation Web site">Reservation Web Site</h1> -->
+		<img class="logo" src="/img/logo/logo1.png">
 		<div id="menu-toggle" class="menu-toggle">
 			<div class="one"></div>
 			<div class="two"></div>
@@ -112,7 +113,6 @@ function alert_call(result,text){
 
 	</nav>
 	<div class="nav-body">
-	
 		<ul class="nav-menu">
 		<li><a href="/" data-text="메인화면">메인화면</a></li>
 		<li><a href="/info" data-text="이용안내">이용안내</a></li>
@@ -122,7 +122,6 @@ function alert_call(result,text){
 		<li class="session_menu1"></li>
 		<li class="session_menu2"></li>
 		</ul>
-
 	</div>
 	<div class="alert">
 	<div class="alert_close">
@@ -132,5 +131,4 @@ function alert_call(result,text){
 		<h1 class="alert_success">잘못된 접근입니다.</h1>
 		<h1 class="alert_fail">잘못된 접근입니다.</h1>
 	</div>
-
 </html>

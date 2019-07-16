@@ -18,6 +18,17 @@ public class MemberController {
 	@Autowired private MemberVO memberVo;
 	@Autowired BCryptPasswordEncoder passwordEncoder;
 
+	
+	@RequestMapping(value="sessioncheck",method=RequestMethod.POST)
+	public @ResponseBody String sessioncheck(HttpServletRequest req) {
+		HttpSession session=req.getSession(true);
+		if(session.getAttribute("userid") == null) {
+			return "logout";
+		}else {
+			return session.getAttribute("userid").toString();
+		}
+	}
+
 	@RequestMapping(value="/emailcheck",method=RequestMethod.POST)
 	public @ResponseBody boolean emailcheck(HttpServletRequest req) {
 		String email=req.getParameter("email");
@@ -50,6 +61,17 @@ public class MemberController {
 		}
 	}
 	
+	@RequestMapping(value="/findId",method=RequestMethod.POST)
+	public @ResponseBody String findId(HttpServletRequest req){
+		String email=req.getParameter("email");
+		memberVo = memberDao.emailcheck(email);
+
+		if(!ObjectUtils.isEmpty(memberVo)) {
+			return memberVo.getId(); 
+		}else {
+			return null;		
+		}
+	}
 	
 	@RequestMapping(value="/join",method=RequestMethod.GET)
 	public String join() {
@@ -79,4 +101,45 @@ public class MemberController {
 		}
 		return false;
 	}
+	
+	@RequestMapping(value = "/login",method = RequestMethod.GET)
+	public String login(HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		
+		if(session.getAttribute("userid") != null)
+		{
+			return "logout";
+		}else {
+			return "login";
+		}
+	}
+	
+	@RequestMapping(value="/memberlogin",method=RequestMethod.POST)
+	public @ResponseBody String  memberlogin(HttpServletRequest req){
+		String id=req.getParameter("id");
+		String pw=req.getParameter("password");	
+		
+		memberVo.setId(id);
+		memberVo=memberDao.memberlogin(memberVo);
+		if(!ObjectUtils.isEmpty(memberVo)&&!id.isEmpty()) {
+			if(passwordEncoder.matches(pw, memberVo.getPassword())) {
+				HttpSession session=req.getSession();
+				session.setAttribute("userid",id);		
+				return id;
+			}else {
+				return null;
+			}
+		}
+		return null;
+	}
+	
+	@RequestMapping(value="/memberlogout",method = RequestMethod.GET)
+	public String memberlogout(HttpServletRequest req) {
+		HttpSession session = req.getSession(false);
+		if(session != null) {
+			session.invalidate();
+		}
+		return "logout";
+	}
+	
 }

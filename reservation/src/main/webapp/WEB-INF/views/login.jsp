@@ -66,7 +66,7 @@ $(document).ready(function(){
 				if(result.trim()!=''){
 					alert_call(true,result+"님 반갑습니다");
 					setTimeout(function(){
-						window.location.href="/";
+						window.history.back();
 					},1000)
 				
 				}else{
@@ -75,7 +75,7 @@ $(document).ready(function(){
 			},error:function(){
 				alert_call(false,"login중 문제발생");
 				setTimeout(function(){
-					location.reload;
+					//location.reload;
 				},1000)
 				
 			}
@@ -115,6 +115,5 @@ $(document).ready(function(){
 
 	</div>
 </div>
-
 </body>
 </html>
