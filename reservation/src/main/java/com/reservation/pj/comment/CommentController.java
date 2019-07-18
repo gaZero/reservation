@@ -24,6 +24,7 @@ public class CommentController {
 		commentVO.setWriter(req.getParameter("writer"));
 		commentVO.setContent(req.getParameter("content"));
 		commentDao.commentinsert(commentVO);
+		
 		List<CommentVO> list = commentDao.commentlist(commentVO);
 
 		return list;
@@ -60,5 +61,4 @@ public class CommentController {
 		}else 
 			return null;
 	}
-	
 }

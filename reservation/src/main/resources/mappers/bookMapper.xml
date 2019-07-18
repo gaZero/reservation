@@ -5,12 +5,23 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.hotel.book.BookMapper">
+<mapper namespace="book">
 	<insert id="bookinsert" parameterType="BookVO">
 		insert into book(book_type,book_person,book_checkin,book_checkout,book_pay,stay) values(#{book_type},#{book_person},#{book_checkin},#{book_checkout},#{book_pay},#{stay});
 	</insert>
 	<select id="mybookselect" parameterType="BookVO" resultType="BookVO">
-		select * from book where book_person=#{id}
+		SELECT book_seq
+			 , book_type
+			 , book_person
+			 , DATE_FORMAT(book_date, '%Y-%m-%d %H:%i') AS book_date
+			 , book_pay
+			 , book_deposit
+			 , book_account
+			 , DATE_FORMAT(book_checkin, '%Y-%m-%d %H:%i') AS book_checkin
+			 , DATE_FORMAT(book_checkout, '%Y-%m-%d %H:%i') AS book_checkout
+			 , stay 
+		FROM BOOK 
+		WHERE BOOK_PERSON = #{id}
 	</select>
 	<delete id="mybookdelete" parameterType="String">
 		delete from book where book_seq=#{seq}

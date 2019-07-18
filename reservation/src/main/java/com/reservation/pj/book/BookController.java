@@ -22,37 +22,36 @@ public class BookController {
 	@Autowired RoomVO roomVO;
 	@Autowired RoomDAO roomDAO;
 	
-
 	@Transactional
 	@RequestMapping(value="/bookinsert" ,method=RequestMethod.POST)
 	public String bookinsert(HttpServletRequest req) {
-		bookVO.setBookCheckin(req.getParameter("checkin"));
-		bookVO.setBookCheckout(req.getParameter("checkout"));
-		bookVO.setBookPay(req.getParameter("pay"));
-		bookVO.setBookPerson(req.getParameter("person"));
-		bookVO.setBookType(req.getParameter("room"));
+		bookVO.setBook_checkin(req.getParameter("checkin"));
+		bookVO.setBook_checkout(req.getParameter("checkout"));
+		bookVO.setBook_pay(req.getParameter("pay"));
+		bookVO.setBook_person(req.getParameter("person"));
+		bookVO.setBook_type(req.getParameter("room"));
 		bookVO.setStay(req.getParameter("stay"));
+		
 		int stay=Integer.parseInt(req.getParameter("stay"));
 		int needrooms=Integer.parseInt(req.getParameter("needrooms"));
 		
 		int max=0;
-		if(bookVO.getBookType().equals("room1")) {
+		if(bookVO.getBook_type().equals("room1")) {
 			 max=31;
-		}else if(bookVO.getBookType().equals("room2")) {
+		}else if(bookVO.getBook_type().equals("room2")) {
 			 max=62;
 		}else {
 			max=93;
 		}
 		
-		
 		bookDAO.bookinsert(bookVO);	
 		
-		roomVO.setRoomDate(bookVO.getBookCheckin());
-		roomVO.setRoomType(bookVO.getBookType());
+		roomVO.setRoomDate(bookVO.getBook_checkin());
+		roomVO.setRoomType(bookVO.getBook_type());
 		roomVO=roomDAO.roomcheck(roomVO);
 		
 		int seq=roomVO.getRoomSeq();
-//		roomVO.setRoom_rem(roomVO.getRoom_rem()-needrooms);
+		roomVO.setRoomStay(roomVO.getRoomStay()-needrooms);
 		
 		for(int i=0;i<stay;i++) {
 			if(seq+i<=max) {
@@ -105,7 +104,7 @@ public class BookController {
 			max=93;
 		}
 		
-//		roomVO.setRoom_rem(roomVO.getRoom_Rem()+rooms);
+		roomVO.setRoomStay(roomVO.getRoomStay()+rooms);
 		for(int i=0;i<stay;i++) {			
 			if(roomseq+i<=max) {
 				roomVO.setRoomSeq(roomseq+i);

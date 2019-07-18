@@ -228,7 +228,6 @@ function commentdelete(seq){
 			}else{
 				alert_call(false,"권한이 없습니다!");
 			}
-		
 		},
 		error:function(){
 			alert_call(false,'댓글 삭제 중 문제발생');
@@ -410,9 +409,7 @@ $(document).ready(function(){
 			$('.nav-menu').css({'padding-top':'18%'});
 		}else{
 			$('.nav-menu').css({'padding-top':'5%'});
-			
 		}
-	
 	})
 	$(document).on('click','.back_span',function(){
 		$('.board_content').css({'margin-top':'0'});
@@ -556,8 +553,13 @@ $(document).ready(function(){
 						content=temp+content.substring(i,content.length);
 					}
 				}
-				
-				if(content.trim()!=''&&content!=null||content.length>500){
+				if(content.length > 500){
+					alert("글자 수가 너무 많습니다.");
+					
+				}else{
+					
+				}
+                   if(content.trim() != '' && content != null || content.length > 500){
 					$.ajax({
 						url:'/commentinsert',
 						type:'post',
@@ -700,7 +702,7 @@ $(document).ready(function(){
 			<div class="board_info" >
 			<h1 style="margin-bottom:0">전화 문의</h1>
 		<h1 style="color: tomato">. . . . . . . .</h1>
-			<h4>010-1234-****</h4>
+			<h4>010-1234-5678</h4>
 			<h4>평일 AM 9:00 ~ PM 6:00</h4>
 			<h4>공휴일 제외</h4>
 		</div>

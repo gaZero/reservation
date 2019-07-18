@@ -5,14 +5,14 @@
 
 <html>
 <head>
-<%-- <%@ include file="header.jsp"%> --%>
-<%-- <link href="${path}/css/room.css?ver=20" rel="stylesheet">  --%>
+<%@ include file="header.jsp"%>
+<link href="${path}/css/room.css?ver=20" rel="stylesheet"> 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>  
 <style>
 .ui-datepicker{ font-size: 15px; width: 250px; background:white; }
-.ui-widget-header{background:deepskyblue}
+.ui-widget-header{background:salmon;}
 .ui-datepicker-title{color:white}
 .ui-datepicker select.ui-datepicker-month{ width:30%; font-size: 11px; }
 .ui-datepicker select.ui-datepicker-year{ width:40%; font-size: 11px; }
@@ -34,6 +34,12 @@ $(document).ready(function(){
 		$('.remaining_table tr').append('<th>객실명</th>');
 		$('.remaining_table tr').append('<th>날짜</th>');
 		$('.remaining_table tr').append('<th>남은객실</th></tr>');
+		
+		if (room == "" || room == null || room == undefined || ( room != null && typeof room == "object" && !Object.keys(room).length)) {
+			alert_call(false,"죄송합니다.현재 객실이 남아있지 않습니다")
+		 	return false;
+		}
+		
 		if(room[0].roomType=="room1"){
 			type="스탠다드";
 		}else if(room[0].roomType=="room2"){
@@ -356,6 +362,7 @@ $(document).ready(function(){
 		}
 			$('.person_select').text($('#person_input').val());
 		})
+		
 		//룸 선택 시 함수
 		function roomselect(data){
 		slidesw = true;
@@ -399,7 +406,7 @@ $(document).ready(function(){
 </head>
 <body>
 <div class="modal">
-<div class="carcurlator">
+<div class="calculator">
 <h1>가격표</h1>
 
 <p class="stay_person"></p>
@@ -421,12 +428,12 @@ $(document).ready(function(){
 </table>
 
 </div>
-<!-- <div class="btn_box"> -->
-<!-- 	<button class="room1_btn" id="room1">스탠다드</button> -->
-<!-- 	<button class="room2_btn" id="room2">슈페리어</button> -->
-<!-- 	<button class="room3_btn" id="room3">디럭스</button> -->
-<!-- 	<button class="room3_btn" id="room4">공통시설</button> -->
-<!-- </div> -->
+<div class="btn_box">
+	<button class="room1_btn" id="room1">스탠다드</button>
+	<button class="room2_btn" id="room2">슈페리어</button>
+	<button class="room3_btn" id="room3">디럭스</button>
+	<button class="room3_btn" id="room4">공통시설</button>
+</div>
 
 
 <div class="slide_btn">
@@ -453,14 +460,12 @@ $(document).ready(function(){
 <!--     <option class="room2" value="학생">학생</option> -->
 <!--     <option class="room3" value="회사원">회사원</option> -->
 <!--   </select> -->
-<!--   <div class="room_select">스탠다드</div> -->
-<!-- 	  <div class="room_dropbox"> -->
-<!-- 	  <div class="room1">스탠다드</div> -->
-<!-- 	  <div class="room2">슈페리어</div> -->
-<!-- 	  <div class="room3">디럭스</div> -->
-<!--   </div> -->
-  
-  
+  <div class="room_select">스탠다드</div>
+	  <div class="room_dropbox">
+	  <div class="room1">스탠다드</div>
+	  <div class="room2">슈페리어</div>
+	  <div class="room3">디럭스</div>
+  </div>
   
     <p>인원 선택</p>
     <div class="toggle_person">

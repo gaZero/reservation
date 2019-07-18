@@ -63,7 +63,7 @@ public class RoomController {
 			max = 93;
 		}
 		roomVO.setRoomType(roomType);
-		roomVO.setRoomType(checkin);
+		roomVO.setRoomDate(checkin);
 		
 		int seq = roomDao.roomcheck(roomVO).getRoomSeq();
 		
@@ -122,25 +122,25 @@ public class RoomController {
 	@RequestMapping(value = "/room1", method = RequestMethod.POST)
 	public void room1() {
 
-//		  TimeZone tz = TimeZone.getTimeZone("Asia/Seoul");
-//	       Calendar calendar = Calendar.getInstance(timeZone);
-//	       calendar.set(2019, Calendar.FEBRUARY , 7);
-//	       String pattern = "yyyy-MM-dd";
-//	       SimpleDateFormat format = new SimpleDateFormat(pattern);
-//	       format.setTimeZone(tz);
-//	       System.out.println(format.format(calendar.getTime()));
-//	       
-//	   
-//		for(int i=1; i<4;i++) {
-//			roomVO.setRoomType("room"+i);
-//		    for(int j=0;j<31;j++) {
-//		    	   calendar.add(Calendar.DATE, j);
-//		    	   roomVO.setRoomDate(format.format(calendar.getTime()));
-//		    	   System.out.println(format.format(calendar.getTime()));
-//		    	   roomDao.roomset(roomVO);
-//		    	   calendar.set(2019, Calendar.FEBRUARY , 7);
-//		       }
-//		}
+		  TimeZone tz = TimeZone.getTimeZone("Asia/Seoul");
+	       Calendar calendar = Calendar.getInstance(tz);
+	       calendar.set(2019, Calendar.JULY , 19);
+	       String pattern = "yyyy-MM-dd";
+	       SimpleDateFormat format = new SimpleDateFormat(pattern);
+	       format.setTimeZone(tz);
+	       System.out.println(format.format(calendar.getTime()));
+	       
+	   
+		for(int i=1; i<4;i++) {
+			roomVO.setRoomType("room"+i);
+		    for(int j=0;j<31;j++) {
+		    	   calendar.add(Calendar.DATE, j);
+		    	   roomVO.setRoomDate(format.format(calendar.getTime()));
+		    	   System.out.println(format.format(calendar.getTime()));
+		    	   roomDao.roomset(roomVO);
+		    	   calendar.set(2019, Calendar.JULY , 19);
+		       }
+		}
 		
 	}	
 }	

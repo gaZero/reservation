@@ -5,7 +5,6 @@
 <html>
 <head>
 <%@ include file="header.jsp"%>
-<!-- here -->
 <link href="/css/join.css?ver=12" rel="stylesheet">
 <title>회원가입</title>
 </head>

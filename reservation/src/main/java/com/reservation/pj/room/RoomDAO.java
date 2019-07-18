@@ -13,10 +13,12 @@ public class RoomDAO {
 	private SqlSession sqlSession;
 	
 	public void roomset(RoomVO rv) {
+		System.out.println("Room Setting");
 		sqlSession.selectOne("room.roomset", rv);
 	}
 	
 	public RoomVO roomcheck(RoomVO rv) {
+
 		return sqlSession.selectOne("room.roomcheck", rv);
 	}
 	
@@ -24,8 +26,8 @@ public class RoomDAO {
 		return sqlSession.selectOne("room.stayroomcheck", rv);
 	}
 
-	public RoomVO roomupdate(RoomVO rv) {
-		return sqlSession.selectOne("room.roomupdate", rv);
+	public void roomupdate(RoomVO rv) {
+		sqlSession.selectOne("room.roomupdate", rv);
 	}
 
 	public List<RoomVO> remainingrooms(String roomType) {

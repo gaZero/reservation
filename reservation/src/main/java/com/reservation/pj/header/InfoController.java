@@ -23,4 +23,8 @@ public class InfoController {
 	public String mypage() {
 		return "mypage";
 	}
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String room() {
+		return "room";
+	}
 }

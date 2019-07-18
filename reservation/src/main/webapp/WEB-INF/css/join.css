@@ -8,14 +8,10 @@
 body{
 	margin:0;
 	padding:0;
-/* 	background: url(""); */
-	background:black;
-	background-size:cover;
-
+	background-color: black;
 }
 .info{
 	margin-top:15;
-	
 }
 .title{
 	text-align:center;
@@ -26,12 +22,12 @@ body{
 	letter-spacing:2;
 	margin:0;
 	padding:0;
-	color:#262626;
+	color:white;
 	text-transform:uppercase;
 	font-size:36px;
 }
 .join_div{
-	 width: 40vw;
+	width: 50vw;
     height: 56vh;
 	background:#fff;
 	margin:0 auto;
@@ -41,8 +37,8 @@ body{
 .left{
 	float:left;
 	width:50%;
-	 height: 56vh;
-	background:url("/resources/bg/pineapple-supply-co-86427-unsplash.jpg");
+	height: 56vh;
+	background:url("https://data.whicdn.com/images/87744945/original.gif");
 	background-size:cover;
 }
 .right
@@ -63,13 +59,13 @@ body{
 	margin:0;
 	padding:0;
 	font-weight:bold;
-	color:salmon;
+	color:black;
 	font-size:.9vw;
 }
 .formBox input{
 	margin-bottom:2vh;
 	border:none;
-	border-bottom:2px solid salmon;
+	border-bottom:2px solid deepskyblue;
 	outline:none;
 	height:4vh;
 	width:100%;
@@ -84,13 +80,13 @@ body{
 	outline:none;
 	height:5vh;
 	color:white;
-	background:#262626;
+	background:#00000094;
 	cursor:pointer;
 	margin-bottom:20px;
 	font-size: .8vw;
 }
 .formBox button:hover{
-	background:salmon;
+	background:deepskyblue;
 }
 .formBox form{
 	margin-bottom:0;
@@ -111,12 +107,12 @@ body{
 	}
 	.join_div{
 	    width: 80%;
-   height: 45%;
+   		height: 45%;
         margin: 3% auto;
 	}
-	.left{
-		height:100%;
-	}
+/* 	.left{ */
+/* 		height:100%; */
+/* 	} */
 	.right{
 	height:100%;
 	}

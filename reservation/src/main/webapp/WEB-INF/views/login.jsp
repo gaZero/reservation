@@ -65,7 +65,7 @@ $(document).ready(function(){
 			success:function(result){
 				if(result.trim()!=''){
 					alert_call(true,result+"님 반갑습니다");
-					setTimeout(function(){
+					setTimeout(function(){						
 						window.history.back();
 					},1000)
 				

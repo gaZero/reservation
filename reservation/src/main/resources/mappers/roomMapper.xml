@@ -14,14 +14,17 @@
 	</insert>
 	
 	<select id="roomcheck" parameterType="RoomVO" resultType="RoomVO">
-		SELECT * 
+		SELECT ROOMSEQ
+			 , ROOMTYPE
+			 , DATE_FORMAT(ROOMDATE, '%Y-%m-%d %H:%i') AS ROOMDATE
+			 , ROOMSTAY
 		FROM ROOM 
 		WHERE ROOMDATE = #{roomDate}
 		AND ROOMTYPE = #{roomType}
 	</select>
 	
 	<select id="stayroomcheck" parameterType="RoomVO" resultType="RoomVO">
-		SELECT ROOM_REM 
+		SELECT ROOMSTAY 
 		FROM ROOM 
 		WHERE ROOMSEQ = ${roomSeq}
 	</select>
@@ -33,7 +36,10 @@
 	</update>
 	
 	<select id="remainingrooms" parameterType="String" resultType="RoomVO">
-		SELECT * 
+		SELECT ROOMSEQ
+			 , ROOMTYPE
+			 , DATE_FORMAT(ROOMDATE, '%Y-%m-%d') AS ROOMDATE
+			 , ROOMSTAY 
 		FROM ROOM 
 		WHERE ROOMTYPE = #{roomType}
 		ORDER BY roomDate
@@ -41,7 +47,7 @@
 	
 	<update id="roomchange" parameterType="RoomVO">
 		UPDATE ROOM SET 
-		ROOMDATE = #{roomDate}
+		DATE_FORMAT(ROOMDATE, '%Y-%m-%d') AS ROOMDATE
 				   , roomStay = 50 
 		WHERE ROOMSEQ = ${roomSeq}
 	</update>

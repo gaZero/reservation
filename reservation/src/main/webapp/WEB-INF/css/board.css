@@ -16,6 +16,7 @@ button {
 body {
 	overflow-y: auto;
 	overflow-x: hidden;
+	background-color: beige;
 }
 
 .paging_span {
@@ -330,6 +331,7 @@ th, td {
 }
 
 .comment_table {
+	
 	margin-top: 1%;
 	margin-left: 30%;
 	width: 40%;

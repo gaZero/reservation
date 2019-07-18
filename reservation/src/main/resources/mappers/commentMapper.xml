@@ -16,7 +16,13 @@
 					  , #{content})
 </insert>
 <select id="commentlist" resultType="CommentVO">
-	SELECT * 
+	SELECT commentSeq
+		 , parentSeq
+		 , writer
+		 , DATE_FORMAT(regDate, '%Y-%m-%d %H:%i') AS regDate
+		 , content
+		 , modified
+		 , up 
 	FROM COMMENT 
 	WHERE PARENTSEQ = #{parentSeq}
 </select>
@@ -29,9 +35,15 @@
 </update>
 
 <select id="commentselect" resultType="CommentVO">
-	SELECT * 
+	SELECT commentSeq
+		 , parentSeq
+		 , writer
+		 , DATE_FORMAT(regDate, '%Y-%m-%d %H:%i') AS regDate
+		 , content
+		 , modified
+		 , up
 	FROM COMMENT 
-	WHERE commentSeq = ${commentSeq}
+	WHERE COMMENTSEQ = ${commentSeq}
 </select>
 
 <delete id="commentdelete">

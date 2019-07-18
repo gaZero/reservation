@@ -61,7 +61,7 @@ public class MemberController {
 		}
 	}
 	
-	@RequestMapping(value="/findId",method=RequestMethod.POST)
+	@RequestMapping(value="/helpid",method=RequestMethod.POST)
 	public @ResponseBody String findId(HttpServletRequest req){
 		String email=req.getParameter("email");
 		memberVo = memberDao.emailcheck(email);

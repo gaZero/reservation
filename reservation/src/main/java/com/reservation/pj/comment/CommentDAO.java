@@ -14,6 +14,10 @@ public class CommentDAO {
 	private SqlSession sqlSession;
 	
 	public void commentinsert(CommentVO cv) {
+		System.out.print(cv.getContent().length());
+		if(cv.getContent().length() > 500) {
+			return;
+		}
 		sqlSession.selectList("comment.commentinsert",cv);
 	}
 	public List<CommentVO> commentlist(CommentVO cv){

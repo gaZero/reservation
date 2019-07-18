@@ -1,16 +1,25 @@
 @charset "UTF-8";
 body {
-	background-image: url("http://www.c1tour.com/data/cheditor4/1302/51d9985d4d666fb065559d8eb7988c99_LOYvBWD7gaO9fxsjyJBhXxx.jpg");
+	background-image: url("../img/background.jpg");
 	background-size: cover;
 	background-repeat : no-repeat;
 }
+#roomChoice:hover {
+	cursor: pointer;
+	border: 1px solid #17e657;
+	color: black;
+	transition: 0.2s;
+	width: 90%;
+    height: 30;
+}
+
 .roombox {
 	position: absolute;
 	margin-left: 30;
-	margin-top: 10%;
+	margin-top: 5%;
 	display: inline-block;
-	width: 35%;
-	height: 70%;
+	width: 32%;
+	height: 82%;
 	background: white;
 	color: #00000094;
 /* 	border: 1px solid; */
@@ -29,13 +38,13 @@ body {
 
 .room_select {
 	color: black;
-	margin-left: 5%;
-	background: silver;
+	margin-left: 0%;
+	background: white;
 	width: 90%;
 	height: 30;
 	border-radius: 5px;
-	text-align: center;
-	border: 1px solid white;
+	text-align: left;
+	border: 1px solid #EBEBEB;
 	cursor: pointer;
 	padding-top: 3px;
 }
@@ -47,10 +56,10 @@ body {
 
 .room_dropbox div {
 	color: black;
-	margin-left: 5%;
+	margin-left: 0%;
 	position: absolute;
 	cursor: pointer;
-	text-align: center;
+	text-align: left;
 	background: white;
 	width: 90%;
 	height: 30;
@@ -58,7 +67,7 @@ body {
 }
 
 .room_dropbox div:hover {
-	background: salmon;
+	background: #ffe6e6;
 }
 
 .room2 {
@@ -71,13 +80,12 @@ body {
 
 .person_select {
 	color: black;
-	margin-left: 5%;
+	margin-left: 0%;
 	background: white;
 	width: 90%;
 	height: 30;
-	border-radius: 5px;
-	text-align: center;
-	border: 1px solid white;
+	text-align: left;
+	border: 1px solid #EBEBEB;
 	cursor: pointer;
 	padding-top: 3px;
 }
@@ -89,18 +97,19 @@ body {
 
 .person_dropbox div {
 	color: black;
-	margin-left: 5%;
+	margin-left: 0%;
 	position: absolute;
 	cursor: pointer;
-	text-align: center;
+	text-align: left;
 	background: white;
 	width: 90%;
 	height: 30;
 	border: 1px solid white;
+	border-radius: 5px; 
 }
 
 .person_dropbox div:hover {
-	background: #A2A2A2;
+	background: deepskyblue;
 }
 
 .person2 {
@@ -122,7 +131,7 @@ body {
 .blur_box_left {
 	width: 200px;
 	height: 40%;
-	background: rgba(255, 255, 255, .4);
+	background: rgba(203, 208, 194, 0.4);
 	position: absolute;
 }
 
@@ -130,18 +139,18 @@ body {
 	margin-left: 600;
 	width: 200px;
 	height: 40%;
-	background: rgba(255, 255, 255, .4);
+	background: rgba(203, 208, 194, 0.4);
 	position: absolute;
 }
 
 .slidebox {
 	margin-top: 10%;
-	margin-left: 22%;
+	margin-left: 42%;
 	overflow: hidden;
 	display: inline-block;
 	width: 800px;
 	height: 40%;
-	border: 1px solid #2c4162;
+	border: 1px solid white;
 	overflow: hidden;
 	background: whitesmoke;
 }
@@ -150,8 +159,8 @@ body {
 	position: absolute;
 	z-index: 10;
 	margin-top: 10%;
-	margin-left: 23%;
-	width: 800px;
+	margin-left: 31%;
+	width: 815px;
 	height: 40%;
 }
 
@@ -169,19 +178,18 @@ button.no {
 	margin-top: 20%;
 	background: unset;
 	color: white;
-	background: black;
 	font-size: 20;
-	border: none;
+	border: solid;
 	opacity: 0.8;
 	padding-top: 5px;
 }
 
 .slide_left {
-	margin-left: 13%;
+	margin-left: 40%;
 }
 
 .slide_right {
-	margin-left: 63%;
+	margin-left: 49%;
 }
 
 .slidebox img {
@@ -197,7 +205,7 @@ button.no {
 .slider {
 	margin-top: 10;
 	width: 830;
-	margin-left: 22%;
+	margin-left: 42%;
 	height: 10%;
 	overflow: hidden;
 }
@@ -215,13 +223,13 @@ button.no {
 }
 
 .active_img {
-	border: 2px solid salmon;
+	border: 2px solid white;
 }
 
 .btn_box {
 	position: absolute;
-	margin-top: 7.5%;
-	margin-left: 22%;
+	margin-top: 7.0%;
+	margin-left: 42%;
 	width: 50%;
 }
 
@@ -236,10 +244,18 @@ button.no {
 	background: #2c4162;
 }
 
+.btn_box button:hover {
+	background: gray;
+	color: white;
+	border: 1px solid #ffffff;
+	transition: 0.3s;
+}
+
 .room_submit {
-/* 	width: 80%; */
-/* 	margin-bottom: 7.5%; */
-/* 	bottom: auto; */
+	position: inherit;
+	right: 0;
+	bottom: 0;
+	margin: 6;
 }
 
 .room_submit:hover {
@@ -258,7 +274,7 @@ button.no {
 	z-index: 1000;
 }
 
-.carcurlator {
+.calculator {
 	width: 30vw;
 	height: 40vh;
 	margin-top: 10%;
@@ -268,22 +284,25 @@ button.no {
 	border-radius: 10px;
 }
 
-.carcurlator h1 {
+.calculator h1 {
 	margin-bottom: 30;
 }
 
 .checkout_room {
 	margin-left: 22%;
+	position: relative !important;
+	left: 41%;
+    margin: 20;
 }
 
 .remaining_div {
-	margin-top: 7.5%;
-	width: 18%;
-	height: 80%;
+	margin-top: 2.7%;
+	width: 32%;
+	height: 95%;
 	position: absolute;
 	box-shadow: 1px 1px 5px grey;
 	text-align: center;
-	margin-left: 45%;
+	margin-left: 32%;
 	background: white;
 	z-index: 100;
 	display: none;
@@ -291,7 +310,7 @@ button.no {
 
 .remaining_div h3 {
 	position: absolute;
-	margin-left: 90%;
+	margin-left: 95%;
 	margin-top: 0%;
 	cursor: pointer;
 	font-size: 1em;
@@ -302,28 +321,27 @@ button.no {
 	color: currentColor;
 	text-align: center;
 	font-size: .8vw;
-	border-top: 1px solid dodgerblue;
+	border-top: 1px solid black;
 	border-collapse: collapse;
 	width: 100%;
-	font-family: NanumSquareRound;
 	font-weight: 700;
 }
 
 .remaining_table th {
-	border-bottom: 1px solid dodgerblue;
+	border-bottom: 1px solid salmon;
 	border-collapse: collapse;
 }
 
 .remaining_table td {
-	border-bottom: 1px solid dodgerblue;
+	border-bottom: 1px solid salmon;
 	border-collapse: collapse;
 }
 
-.carcurlator h1 {
+.calculator h1 {
 	font-size: 1.5vw;
 }
 
-.carcurlator p {
+.calculator p {
 	font-size: .8vw;
 }
 
@@ -350,7 +368,7 @@ button.no {
 		margin-left: 1%;
 	}
 	.roombox {
-		height: 75%;
+		height: 79%;
 	}
 	.checkout_room {
 		margin-left: 1%;
@@ -369,7 +387,7 @@ button.no {
 		margin-left: 80%;
 	}
 	.remaining_div {
-		height: 95%;
+		height: 127%;
 		margin-top: 5.5%;
 	}
 	.roombox {
@@ -483,16 +501,16 @@ button.no {
 		margin-top: 80%;
 		display: block;
 	}
-	.carcurlator {
+	.calculator {
 		display: block;
 		margin-left: 15%;
 		margin-top: 47%;
 		width: 70%;
 	}
-	.carcurlator h1 {
+	.calculator h1 {
 		font-size: 2em;
 	}
-	.carcurlator p {
+	.calculator p {
 		font-size: 0.7em;
 	}
 	.remaining_div {
@@ -513,4 +531,17 @@ button.no {
 		width: 110%;
 		height: 110%;
 	}
+
 }
+© 2019 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
