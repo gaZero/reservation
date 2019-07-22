@@ -5,6 +5,7 @@
 <head>
 <%@ include file="header.jsp"%>
 <link href="${path}/css/board.css?ver=2" rel="stylesheet">
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
 <script>
 var curpagenum="1"; //현재 페이지번호 변수
@@ -688,6 +689,15 @@ $(document).ready(function(){
 	
 	})
 });
+
+Kakao.init('8df52c0b34a125567780d87840e6300f');
+
+function plusFriendChat() {
+  Kakao.PlusFriend.chat({
+    plusFriendId: '_SxfxhxfT' 
+    
+  });
+}
 </script>
 <body>
 <h1 class="tag">고객센터</h1>
@@ -713,5 +723,10 @@ $(document).ready(function(){
 			<h4>최대한 빠른 시간내에 </h4>
 			<h4>답변 드리도록 노력하겠습니다.</h4>
 		</div>
+		<!-- 플러스친구 -->
+		<a href="javascript:void plusFriendChat()">
+  			<img src="https://developers.kakao.com/assets/img/about/logos/plusfriend/consult_small_yellow_pc.png"/>
+		</a>
+				
 </body>
 </html>
