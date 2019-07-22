@@ -1,7 +1,7 @@
 # Hotel Reservation Site :hotel:
 
 * Tool</br>
-eclipse, intelli j, mysql workbench
+sts, mysql workbench
 
 * Framework</br>
 srping4.x.x
