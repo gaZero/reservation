@@ -18,5 +18,5 @@ jsp
 * etc</br>
 git, github ..
 
-*KAKAO TALK 플러스친구 (서울호텔 SEOUL HOTEL)
+* KAKAO TALK 플러스친구 (서울호텔 SEOUL HOTEL)</br>
 http://pf.kakao.com/_SxfxhxfT/chat 
