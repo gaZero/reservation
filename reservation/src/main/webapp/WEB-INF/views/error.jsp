@@ -9,6 +9,7 @@
 <link href="${path}/css/error.css?ver=1" rel="stylesheet">
 </head>
 <body>
+
 <div class="error_text">
 ${error}
 </div>
