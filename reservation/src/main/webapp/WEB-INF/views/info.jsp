@@ -8,12 +8,10 @@
 <link href="${path}/css/info.css?ver=2" rel="stylesheet">
 </head>
 <body>
-<!-- Header -->
-			<header id="header">
-				<div class="logo"><a href="#">ABOUT US<span>dori hotel</span></a></div>
-			</header>
-
-			
+<!-- <!-- Header -->
+<!-- 			<header id="header"> -->
+<!-- 				<div class="logo"><a href="#">ABOUT US<span>SEOUL HOTEL</span></a></div> -->
+<!-- 			</header> -->
 		<!-- Main 1 -->
 			<section id="main">
 				<div class="inner">
@@ -24,7 +22,7 @@
 							<img src="http://putribany.files.wordpress.com/2014/02/seoul-night.jpg" />
 						</div>
 						<header class="special">
-							<h2>DORI SEOUL</h2>
+							<h2>SEOUL HOTEL</h2>
 							<p>서울 심장부의 우아하고 스타일리시한 매력</p>
 						</header>
 						<div class="content">
@@ -66,6 +64,27 @@
 					</section>
 				</div>
 			</section>
+			
+		<!-- kakao map -->
+		<div id="map" style="width:300px;height:300px;"></div>
+		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e4a66d063ced46e8f1c09409301550d0"></script>
+		<script>
+			var mapContainer = document.getElementById('map'), 
+		    mapOption = { 
+		        center: new kakao.maps.LatLng(37.551208, 126.988076), 
+		        level: 1 
+		    };
+	
+			var map = new kakao.maps.Map(mapContainer, mapOption); 
+	
+			var markerPosition  = new kakao.maps.LatLng(37.551208, 126.988076); 
+	
+			var marker = new kakao.maps.Marker({
+			    position: markerPosition
+			});
+	
+			marker.setMap(map);
+		</script>	
 
 		<!-- Footer -->
 			<footer id="footer">
